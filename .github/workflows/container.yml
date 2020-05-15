@@ -1,0 +1,17 @@
+on:
+  push: { branches: [master] }
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Publish to github registry
+        uses: elgohr/Publish-Docker-Github-Action@2.14
+        with:
+          name: ${{ github.repository }}/ytdlbot
+          username: ${{ github.actor }}
+          password: ${{ github.token }}
+          registry: docker.pkg.github.com
+          tags: 0.1
+        env:
+          DOCKER_BUILDKIT: 1 # faster?
