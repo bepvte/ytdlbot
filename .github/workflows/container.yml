@@ -6,7 +6,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Publish to github registry
-        uses: elgohr/Publish-Docker-Github-Action@2.14
+        uses: elgohr/Publish-Docker-Github-Action@master
         with:
           name: ${{ github.repository }}/ytdlbot
           username: ${{ github.actor }}
