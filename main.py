@@ -6,7 +6,7 @@ import os
 from asyncio import subprocess
 from discord.errors import NoMoreItems
 import json
-from .main import util
+import util
 
 warning = "⚠"
 

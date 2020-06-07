@@ -31,16 +31,16 @@ headers = [
 
 
 class logging:
-    def error(self, *, arg):
+    def error(arg):
         pass
 
-    def warn(self, *, arg):
+    def warn(arg):
         pass
 
-    def info(self, *, arg):
+    def info(arg):
         pass
 
-    def debug(self, *, arg):
+    def debug(arg):
         pass
 
 
