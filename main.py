@@ -6,6 +6,7 @@ import os
 from asyncio import subprocess
 from discord.errors import NoMoreItems
 import json
+from AmpRemover import util
 
 warning = "⚠"
 
@@ -16,6 +17,24 @@ bot = commands.Bot(
     command_prefix="_",
     help_command=commands.DefaultHelpCommand(no_category="Commands:"),
 )
+
+# thank you to https://github.com/johnnyapol/AmpRemover
+@bot.event
+async def on_message(message):
+    if util.check_if_amp(message.content):
+        urls = util.get_amp_urls(message.content)
+        non_amp = util.get_canonicals(urls, False)
+
+        msg_text = "Non-AMP Urls:"
+        base_len = len(msg_text)
+
+        for url in non_amp:
+            if len(url) == 0:
+                continue
+            msg_text = f"{msg_text}\n{url}"
+
+        if len(msg_text) != base_len:
+            await message.channel.send(msg_text)
 
 
 @bot.event
