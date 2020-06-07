@@ -12,6 +12,6 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ github.token }}
           registry: docker.pkg.github.com
-          tags: 0.1
+          tags: "latest,0.1"
         env:
           DOCKER_BUILDKIT: 1 # faster?
