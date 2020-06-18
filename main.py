@@ -165,4 +165,9 @@ async def say(ctx, *, arg):
         await ctx.send(arg)
 
 
+@bot.command()
+async def nick(ctx, *, arg):
+    await ctx.guild.me.edit(nick=arg)
+
+
 bot.run(os.getenv("TOKEN"))
