@@ -19,7 +19,7 @@ bot = commands.Bot(
 )
 
 # thank you to https://github.com/johnnyapol/AmpRemover
-@bot.event
+@bot.listen()
 async def on_message(message):
     if util.check_if_amp(message.content):
         urls = util.get_amp_urls(message.content)
