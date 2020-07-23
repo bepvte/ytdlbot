@@ -159,7 +159,7 @@ async def safeargs(ctx):
     await ctx.send(", ".join(safelist))
 
 
-@bot.command()
+@bot.command(hidden=True)
 async def say(ctx, *, arg):
     if ctx.author.id == 147077474222604288:
         await ctx.send(arg)
