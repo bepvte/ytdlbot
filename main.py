@@ -129,7 +129,7 @@ safelist = [
 
 @bot.command()
 async def ytargs(ctx, *args):
-    """advanced command that special arguments, needs quoting"""
+    """advanced command that can do special arguments, needs quoting"""
     if not args:
         return
     for x in args:
