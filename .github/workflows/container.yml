@@ -8,10 +8,10 @@ jobs:
       - name: Publish to github registry
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
-          name: ${{ github.repository }}/ytdlbot
+          name: ${{ github.repository_owner }}/ytdlbot
           username: ${{ github.actor }}
-          password: ${{ github.token }}
-          registry: docker.pkg.github.com
+          password: ${{ secrets.CR_PAT }}
+          registry: ghcr.io
           tags: "latest,0.1"
         env:
           DOCKER_BUILDKIT: 1 # faster?

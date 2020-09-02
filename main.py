@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
 
-from discord import Status
 from discord.ext import commands
 import os
 from asyncio import subprocess
-from discord.errors import NoMoreItems
 import json
 import util
 
