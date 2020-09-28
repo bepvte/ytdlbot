@@ -6,7 +6,8 @@ from asyncio import subprocess
 import json
 import util
 
-warning = "⚠"
+WARNING = "⚠"
+YTDL_ARGS = ["youtube-dl", "--update"]
 
 bot = commands.Bot(
     max_messages=50,
@@ -69,7 +70,7 @@ async def yturl(ctx, *, arg=None):
         return
 
     proc = await subprocess.create_subprocess_exec(
-        "youtube-dl",
+        *YTDL_ARGS,
         "-f",
         "best",
         "-g",
@@ -81,7 +82,7 @@ async def yturl(ctx, *, arg=None):
     data = await proc.stdout.read()
     line = data.decode()
     if await proc.wait() != 0:
-        line = warning + " " + line
+        line = WARNING + " " + line
 
     await ctx.send(line)
 
@@ -92,7 +93,7 @@ async def yt(ctx, *, arg):
     if not arg:
         return
     proc = await subprocess.create_subprocess_exec(
-        "youtube-dl",
+        *YTDL_ARGS,
         "-f",
         "best",
         "-j",
@@ -135,7 +136,7 @@ async def ytargs(ctx, *args):
             await ctx.message.add_reaction("❌")
             return
     proc = await subprocess.create_subprocess_exec(
-        "youtube-dl",
+        *YTDL_ARGS,
         "--simulate",
         *args,
         stdout=subprocess.PIPE,
@@ -146,7 +147,7 @@ async def ytargs(ctx, *args):
     line = data.decode()
     line = line.rstrip("\n")
     if await proc.wait() != 0:
-        line = warning + " " + line
+        line = WARNING + " " + line
 
     await ctx.send(line)
 
