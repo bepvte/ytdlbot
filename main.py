@@ -123,6 +123,7 @@ safelist = [
     "-F",
     "--format",
     "--list-formats",
+    "--version",
 ]
 
 
