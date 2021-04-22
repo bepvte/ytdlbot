@@ -10,7 +10,7 @@ jobs:
         with:
           name: ${{ github.repository_owner }}/ytdlbot
           username: ${{ github.actor }}
-          password: ${{ secrets.CR_PAT }}
+          password: ${{ secrets.GITHUB_TOKEN }}
           registry: ghcr.io
           tags: "latest,0.1"
         env:
