@@ -167,6 +167,7 @@ async def say(ctx, *, arg):
 
 @bot.command()
 async def nick(ctx, *, arg):
+    """change nickname"""
     await ctx.guild.me.edit(nick=arg)
 
 
