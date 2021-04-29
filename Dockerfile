@@ -7,7 +7,7 @@ WORKDIR /usr/src/app
 RUN mkdir -p /persist/bin
 RUN wget https://yt-dl.org/downloads/latest/youtube-dl -O /persist/bin/youtube-dl
 RUN chmod a+x /persist/bin/youtube-dl
-VOLUME /persist
+# VOLUME /persist
 
 ENV PATH="/persist/bin:${PATH}"
 
