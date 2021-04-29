@@ -7,7 +7,7 @@ import json
 import util
 
 WARNING = "⚠"
-YTDL_ARGS = ["youtube-dl"]
+YTDL_ARGS = ["youtube-dl", "--update"]
 
 bot = commands.Bot(
     max_messages=50,
