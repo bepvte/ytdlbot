@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import discord
 from discord.ext import commands
 import os
 from asyncio import subprocess
@@ -9,12 +10,18 @@ import util
 WARNING = "⚠"
 YTDL_ARGS = ["youtube-dl", "--update"]
 
+intents = discord.Intents.none()
+intents.messages = True
+
 bot = commands.Bot(
-    max_messages=50,
-    fetch_offline_members=False,
+    max_messages=None,
     guild_subscriptions=False,
     command_prefix="_",
     help_command=commands.DefaultHelpCommand(no_category="Commands:"),
+    member_cache_flags = discord.MemberCacheFlags.none(),
+    chunk_guilds_at_startup = False,
+    allowed_mentions = discord.AllowedMentions.none(),
+    intents=intents,
 )
 
 # thank you to https://github.com/johnnyapol/AmpRemover
