@@ -12,16 +12,15 @@ YTDL_ARGS = ["youtube-dl", "--update"]
 
 intents = discord.Intents.none()
 intents.messages = True
+intents.guilds = True
 
 bot = commands.Bot(
-    max_messages=None,
+    max_messages=100,
     guild_subscriptions=False,
     command_prefix="_",
-    help_command=commands.DefaultHelpCommand(no_category="Commands:"),
-    member_cache_flags = discord.MemberCacheFlags.none(),
-    chunk_guilds_at_startup = False,
-    allowed_mentions = discord.AllowedMentions.none(),
+    allowed_mentions=discord.AllowedMentions.none(),
     intents=intents,
+    help_command=commands.DefaultHelpCommand(no_category="Commands:"),
 )
 
 # thank you to https://github.com/johnnyapol/AmpRemover
