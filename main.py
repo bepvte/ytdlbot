@@ -8,7 +8,7 @@ import json
 import util
 
 WARNING = "⚠"
-YTDL_ARGS = ["youtube-dl", "--update", "-s"]
+YTDL_ARGS = ["pypy3", "/persist/bin/youtube-dl", "--update", "-s"]
 
 intents = discord.Intents.none()
 intents.messages = True

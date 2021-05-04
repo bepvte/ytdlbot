@@ -1,6 +1,12 @@
-FROM python:3
+FROM pypy:3
 
 WORKDIR /usr/src/app
+
+# Run ytdl with python3?
+# nvm
+# RUN apt-get update && apt-get install -y \
+#    python3
+#    && rm -rf /var/lib/apt/lists/*
 
 # Do not spam yt-dl.org servers
 
@@ -12,8 +18,8 @@ VOLUME /persist
 ENV PATH="/persist/bin:${PATH}"
 
 COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pypy3 -m pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD [ "python", "./main.py" ]
+CMD [ "pypy3", "./main.py" ]
