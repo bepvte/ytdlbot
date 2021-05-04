@@ -94,7 +94,7 @@ async def yturl(ctx, *, arg=None):
 
 
 @bot.command()
-async def yt(ctx, *, arg):
+async def yt(ctx, *, arg=None):
     """get website url from query"""
     if not arg:
         return
