@@ -63,9 +63,9 @@ async def ping(ctx):
 async def historify(ctx, args):
     if not args:
         msg = await ctx.history(limit=1, before=ctx.message).next()
-        args = [msg.clean_content]
+        args = [msg.clean_content.removeprefix('<').removesuffix('>')]
     else:
-        return args
+        return args.removeprefix('<').removesuffix('>')
 
 
 @bot.command()

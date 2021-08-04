@@ -1,4 +1,4 @@
-FROM pypy:3
+FROM python:3
 
 WORKDIR /usr/src/app
 
@@ -18,8 +18,8 @@ VOLUME /persist
 ENV PATH="/persist/bin:${PATH}"
 
 COPY requirements.txt ./
-RUN pypy3 -m pip install --no-cache-dir -r requirements.txt
+RUN python3 -m pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD [ "pypy3", "./main.py" ]
+CMD [ "python3", "./main.py" ]
